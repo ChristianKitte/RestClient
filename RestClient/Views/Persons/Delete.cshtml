@@ -1,39 +1,44 @@
 ﻿@model RestClient.Models.Person
 
 @{
-    ViewData["Title"] = "Neu";
+    ViewData["Title"] = "Löschen";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Neu</h1>
+<h1>Löschen</h1>
 
 <h4>Person</h4>
-<hr />
+<hr/>
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="Create">
+        <form asp-action="Delete">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
+                <label asp-for="PersonID" class="control-label"></label>
+                <input asp-for="PersonID" class="form-control" readonly="@(true)"/>
+                <span asp-validation-for="PersonID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
                 <label asp-for="Vorname" class="control-label"></label>
-                <input asp-for="Vorname" class="form-control" />
+                <input asp-for="Vorname" class="form-control" readonly="@(true)"/>
                 <span asp-validation-for="Vorname" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Nachname" class="control-label"></label>
-                <input asp-for="Nachname" class="form-control" />
+                <input asp-for="Nachname" class="form-control" readonly="@(true)"/>
                 <span asp-validation-for="Nachname" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Hinzufügen" class="btn btn-primary" />
+                <input type="submit" value="Löschen" class="btn btn-primary"/>
             </div>
-        </form>
+        </form>     
     </div>
 </div>
 
-<div>
+<div>       
     <a asp-action="Personenliste">Zurück</a>
 </div>
 
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
 }
