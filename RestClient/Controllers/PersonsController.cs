@@ -26,7 +26,7 @@ namespace RestClient.Controllers
         {
             try
             {
-                List<Person> persons = null;
+                List<Person> persons = new List<Person>();
 
                 using (var client = _clientFactory.CreateClient())
                 {
@@ -36,7 +36,6 @@ namespace RestClient.Controllers
 
                 if (persons != null && persons.Count > 0)
                 {
-                    persons = new List<Person>();
                     return View(persons);
                 }
                 else
@@ -44,7 +43,7 @@ namespace RestClient.Controllers
                     return RedirectToAction(nameof(LeereListe));
                 }
             }
-            catch
+            catch (Exception fehler)
             {
                 return View();
             }

@@ -26,6 +26,7 @@
     </tr>
     </thead>
     <tbody>
+
     @foreach (var item in Model)
     {
         <tr>
@@ -40,8 +41,8 @@
             </td>
             <td>
                 @Html.ActionLink("Bearbeiten", "Edit", new {id = item.PersonID}) |
-                @Html.ActionLink("Details", "Details", new { id = item.PersonID }) |
-                @Html.ActionLink("Löschen", "Delete", new { id = item.PersonID })
+                @Html.ActionLink("Details", "Details", new {id = item.PersonID}) |
+                @Html.ActionLink("Löschen", "Delete", new {id = item.PersonID})
             </td>
         </tr>
     }
