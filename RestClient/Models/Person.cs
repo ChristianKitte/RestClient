@@ -9,6 +9,15 @@ namespace RestClient.Models
     public class Person
     {
         /// <summary>
+        /// Konstruktor
+        /// </summary>
+        public Person()
+        {
+            Vorname = string.Empty;
+            Nachname = string.Empty;
+        }
+        
+        /// <summary>
         /// Die ID der Person 
         /// </summary>
         [Key]

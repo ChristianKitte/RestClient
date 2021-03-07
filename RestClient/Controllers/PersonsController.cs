@@ -36,6 +36,7 @@ namespace RestClient.Controllers
 
                 if (persons != null && persons.Count > 0)
                 {
+                    persons = new List<Person>();
                     return View(persons);
                 }
                 else
