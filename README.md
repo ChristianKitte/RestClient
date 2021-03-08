@@ -9,7 +9,9 @@ Basis einer SQLite Datenbank. Im Detail soll folgendes exemplarisch umgesetzt we
 * Verwenden einer HttpClientFactory zur Vermeidung von [Problemen](https://docs.microsoft.com/de-de/dotnet/architecture/microservices/implement-resilient-applications/use-httpclientfactory-to-implement-resilient-http-requests)
 * Nutzen der Build In Konfiguration und DI Unterstützung
 * (offen) Der Implementierung einer Zugangsverwaltung
-* (offen) Implementieren einer Docker Unterstützung (Docker Image sowie Composer)
+* (offen) Nutzen einer geschützten REST API
+* Implementieren einer Docker Unterstützung
+* (offen) Ausführung des Clients und der REST API aus [**DockerWebAPI**](https://github.com/ChristianKitte/DockerWebAPI) mit Docker Composer 
 
 Die aktuelle Anwendung verwendet als Quelle für die Datenbank einen Webserver an der Basisadresse 
 **```http://127.0.0.1/api/v1/```**. Die Einstellung ist in der **appsetting.json** gehalten und kann hier angepasst werden.
@@ -28,6 +30,10 @@ docker run -d -p 8080:80 ckitte/dbserver
 ```
 
 Nach dem Start des Images ist der oben genannte Port verfügbar.
+
+### Information
+Es ist nicht einfach möglich, diese Anwendung und [**DockerWebAPI**](https://github.com/ChristianKitte/DockerWebAPI) jeweils als Container 
+auszuführen und zusammenarbeiten zu lassen.
 
 ### Umsetzung
 Bei der Umsetzung wurde primär auf eine gute Nachvollziehbarkeit und Einfachheit geachtet, so dass das Projekt gut
