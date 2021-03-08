@@ -1,0 +1,11 @@
+version: '3.4'
+
+services:
+  restclient:
+    image: ${DOCKER_REGISTRY-}restclient
+    build:
+      context: .
+      dockerfile: RestClient/Dockerfile
+  
+  dbserver:
+    image: ${DOCKER_REGISTRY-}dbserver:latest

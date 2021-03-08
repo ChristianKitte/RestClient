@@ -26,12 +26,19 @@ namespace RestClient.Controllers
         {
             try
             {
-                List<Person> persons = new List<Person>();
+                List<Person> persons = null;
 
                 using (var client = _clientFactory.CreateClient())
                 {
                     client.BaseAddress = _baseAddress;
-                    persons = client.GetFromJsonAsync<List<Person>>("persons/").Result; //.Result nicht vergessen!
+                    try
+                    {
+                        persons = client.GetFromJsonAsync<List<Person>>("persons/").Result; //.Result nicht vergessen!
+                    }
+                    catch
+                    {
+                        persons = null;
+                    }
                 }
 
                 if (persons != null && persons.Count > 0)
